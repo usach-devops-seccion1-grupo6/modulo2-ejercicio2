@@ -6,14 +6,21 @@ from app.common.error_handling import ObjectNotFound, AppErrorBaseClass
 from app.db import db
 from app.usuarios.api_v1_0.resources import usuarios_v1_0_bp
 from .ext import ma, migrate
+import sys
 
 
 def create_app():
     """Funcion que lanza la aplicación"""
-    app = Flask(__name__)
-    settings_module = os.getenv('APP_SETTINGS_MODULE')
+    app = Flask(
+        __name__,
+        instance_relative_config=True)
 
-    app.config.from_object(settings_module)
+    app_settings = 'app.config.Production'
+    if 'APP_SETTINGS' in dict(os.environ):
+        app_settings = os.environ['APP_SETTINGS']
+
+    app.config.from_object(app_settings)
+
     # Inicializa las extensiones
     db.init_app(app)
     ma.init_app(app)
