@@ -10,7 +10,6 @@ dejaron disponibles los siguientes endpoints.
 | POST   | api/v1.0/usuarios/                    | agrega un usuario (email, nombre, clave)|
 | DELETE | api/v1.0/usuarios/{correo@domain.tld} | elimina un usuario                      |
 | PUT    | api/v1.0/usuarios/{correo@domain.tld} | modifica un usuario                     |
-| POST   | api/v1.0/usuarios/auth/               | autentifica un usuario             |
 
 ## Descarga e instalación del proyecto
 
@@ -19,6 +18,7 @@ Para descargar el proyecto puedes clonar el repositorio:
 ```console
   $ git clone https://bitbucket.org/devops-grupo6/ejercicio2.git
 ```
+
 
 ### Con Docker
 
